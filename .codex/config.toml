@@ -1,0 +1,10 @@
+[mcp_servers.lumora]
+command = "npx"
+args = ["-y", "http://localhost:3000/install/lumora-mcp-1.4.0.tgz"]
+startup_timeout_sec = 120
+
+[mcp_servers.lumora.env]
+LUMORA_URL = "http://localhost:3000"
+
+[features]
+hooks = true
