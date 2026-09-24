@@ -92,3 +92,4 @@ To create a Lumora project skill, invoke `skill-creator` with `createPendingSkil
 When a tool rejects an action, preserve the returned state, explain why it was rejected, and follow `nextCalls` or the returned remediation. Do not retry blindly or substitute a lower-level tool.
  
 When work is complete, summarize what changed, what evidence was attached, and any remaining governance or verification debt.
+Demo Project
