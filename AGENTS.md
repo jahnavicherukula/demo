@@ -7,12 +7,8 @@ This repository is governed through Lumora MCP. Lumora is the source of truth fo
  
 1. Call `get_my_context` before doing anything else in a new session.
 2. Call `session_start` after context is loaded.
-3. Read `get_project_standards` before code, architecture, UI, brand, or infrastructure work.
-4. Inspect existing plans, assigned work, governance records, and relevant learnings before creating work.
-5. Use `check_standards` before a governed write or potentially restricted action.
-6. Use the narrowest applicable MCP tool or registered skill; do not bypass the workflow with direct database or filesystem writes.
-7. Attach proof with `attach_evidence`; never claim completion without evidence where the workflow expects it.
-8. Call `session_end` when the session is complete.
+3. Use relevant MCP tool calls to implement what is asked
+4. Call `session_end` when the session is complete.
  
 MCP responses are authoritative. This file explains operating policy; it does not replace live project context or standards.
  
@@ -42,7 +38,8 @@ User intent to create, silence, partial feedback, or approval of one item is not
 Use `get_plans` to list or inspect plans before authoring follow-on work. Use `get_assigned_work` for Agile work; use `get_project_action_items` and `get_phase_documents` for Waterfall work.
  
 - Agile: `upsert_list_item` requires two explicit confirmations: confirm creation, then approve the complete draft.
-- Waterfall: `generate_action_items` is preview-only. Show the draft, collect explicit approval, then call `upsert_action_item`.
+- Ideation: `generate_action_items` returns suggestions; after the user asks to push them, call `upsert_action_item` with `mode: "ideation"`.
+- Agile/Waterfall: `generate_action_items` is preview-only. Show the draft, collect explicit approval, then call `upsert_action_item`.
 - Project docs: use `upsert_project_docs`; do not use a plan tool for a project document.
 - ADRs: use `log_decision`.
 - Post-Ideation handoff: use `generate_ideation_artifacts`; preview first, persist only after approval.
@@ -92,4 +89,4 @@ To create a Lumora project skill, invoke `skill-creator` with `createPendingSkil
 When a tool rejects an action, preserve the returned state, explain why it was rejected, and follow `nextCalls` or the returned remediation. Do not retry blindly or substitute a lower-level tool.
  
 When work is complete, summarize what changed, what evidence was attached, and any remaining governance or verification debt.
-Demo Project
+<!-- /Lumora MCP instructions -->
