@@ -1,0 +1,18 @@
+{
+  "description": "Lumora workspace contract bootstrap",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .lumora/refresh-contract.mjs",
+            "timeout": 5,
+            "statusMessage": "Refreshing Lumora workspace contract..."
+          }
+        ]
+      }
+    ]
+  }
+}

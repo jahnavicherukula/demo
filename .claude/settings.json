@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .lumora/refresh-contract.mjs",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

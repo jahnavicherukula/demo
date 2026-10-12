@@ -1,0 +1,8 @@
+{
+  "servers": {
+    "lumora": {
+      "type": "http",
+      "url": "http://localhost:3000/mcp/org/org_6c6cd513-5a8a-430a-9e5e-75483d22630c"
+    }
+  }
+}
